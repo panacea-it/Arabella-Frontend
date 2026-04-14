@@ -1,0 +1,131 @@
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.slideContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.blackOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10%;
+  text-align: center;
+}
+
+.animatedText {
+  color: #ffffff;
+  font-family: 'Inter', 'Arial Black', sans-serif;
+  font-size: 3.2rem;
+  /* Reduced from 4.5rem */
+  font-weight: 450;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.1em;
+  line-height: 1.2;
+  max-width: 1000px;
+}
+
+.wordWrapper {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.char {
+  display: inline-block;
+}
+
+/* Pagination Dots */
+.pagination {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.dot.active {
+  background: #ffffff;
+  transform: scale(1.5);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .animatedText {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .animatedText {
+    font-size: 2rem;
+    /* Reduced from 2.5rem to prevent overflow */
+    padding: 0 10px;
+  }
+
+  .pagination {
+    right: 15px;
+    /* Tighter spacing */
+    gap: 10px;
+    /* Smaller gap between dots */
+  }
+}
+
+@media (max-width: 480px) {
+  .animatedText {
+    font-size: 1.6rem;
+    /* Even smaller for very narrow screens */
+  }
+}

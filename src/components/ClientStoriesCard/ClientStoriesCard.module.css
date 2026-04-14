@@ -1,0 +1,214 @@
+/* ---------- Base Styles (Desktop) ---------- */
+.cardWrapper {
+  position: relative;
+  padding-left: 50px;
+  padding-top: 25px;
+  /* Reduced from 40px */
+  padding-bottom: 25px;
+  /* Reduced from 40px */
+  min-width: 400px;
+  /* Fixed width helps consistency */
+  width: 400px;
+  /* Ensure they are all same width */
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* FLEX HEIGHT STRATEGY */
+  height: auto;
+  /* Let the parent (stretch) dictate height */
+  display: flex;
+  flex-direction: column;
+}
+
+.cardWrapper:hover {
+  transform: translateY(-5px);
+}
+
+.card {
+  position: relative;
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.98);
+  /* Less transparent for cleaner text */
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  /* Slightly tighter radius */
+  padding: 35px 25px 30px 80px;
+  /* SIGNIFICANTLY REDUCED PADDING */
+
+  box-shadow:
+    0 15px 30px -5px rgba(30, 58, 138, 0.08),
+    0 8px 8px -5px rgba(0, 0, 0, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 1);
+
+  /* FILL WRAPPER */
+  flex: 1;
+  /* Grow to fill the wrapper's height */
+  height: auto;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Decorative huge quote mark */
+.card::before {
+  content: "“";
+  position: absolute;
+  top: -10px;
+  /* Tweaked position */
+  right: 20px;
+  font-family: "Georgia", serif;
+  font-size: 120px;
+  /* Smaller quote mark */
+  line-height: 1;
+  color: rgba(197, 163, 101, 0.1);
+  /* Faint Gold */
+  pointer-events: none;
+}
+
+.imageWrapper {
+  position: absolute;
+  left: -35px;
+  /* Tighter overlap */
+  top: 35px;
+  /* Aligned nearer to top */
+  width: 90px;
+  /* Smaller image */
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  /* Gold Ring Border */
+  border: 3px solid #ffffff;
+  box-shadow:
+    0 0 0 3px #c5a365,
+    /* Gold outer ring */
+    0 8px 15px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  transition: transform 0.5s ease;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardWrapper:hover .imageWrapper {
+  transform: scale(1.05) rotate(-3deg);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.stars {
+  font-size: 16px;
+  /* Smaller stars */
+  color: #c5a365;
+  /* Gold */
+  margin-bottom: 12px;
+  letter-spacing: 3px;
+  display: flex;
+  gap: 2px;
+}
+
+.text {
+  font-family: "Outfit", sans-serif;
+  /* CHANGED TO SANS-SERIF */
+  font-style: normal;
+  /* REMOVED ITALIC */
+  font-size: 0.95rem;
+  /* Compact clean text */
+  line-height: 1.6;
+  color: #334155;
+  /* Slate distinct text */
+  margin-bottom: 20px;
+  font-weight: 400;
+  /* Added weight for better readability */
+}
+
+.name {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  /* Navy Blue */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* Increased letter spacing */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.name::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background-color: #c5a365;
+}
+
+/* ---------- Mobile Version ---------- */
+@media (max-width: 768px) {
+  .cardWrapper {
+    padding-left: 0;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    min-width: auto;
+    width: 85vw;
+    /* High percentage width for mobile swipe */
+    margin: 0 10px;
+    /* Add margin for spacing between cards */
+    height: auto;
+  }
+
+  .card {
+    padding: 50px 20px 30px 20px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px -5px rgba(30, 58, 138, 0.1);
+  }
+
+  .card::before {
+    display: none;
+  }
+
+  .imageWrapper {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -35px;
+    /* Adjust overlap */
+    width: 70px;
+    height: 70px;
+    box-shadow:
+      0 0 0 3px #c5a365,
+      0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Disable hover rotation on touch devices */
+  .cardWrapper:hover .imageWrapper {
+    transform: translateX(-50%);
+  }
+
+  .stars {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .name {
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+
+  .text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}

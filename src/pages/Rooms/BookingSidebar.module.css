@@ -1,0 +1,431 @@
+.sidebarContainer {
+  background: white;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  position: sticky;
+  top: 30px;
+  z-index: 50;
+  border-radius: 12px;
+  overflow: visible;
+
+  /* 🔥 Grid Layout */
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "calendar info";
+  border: 1px solid #eaeaea;
+}
+
+/* --- HEADER --- */
+.header {
+  grid-area: header;
+  background-color: #a39076;
+  color: white;
+  padding: 18px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 12px 12px 0 0;
+}
+
+/* --- CALENDAR WRAPPER --- */
+.calendarWrapper {
+  grid-area: calendar;
+  padding: 25px 30px;
+  background: white;
+  position: relative;
+  border-right: 1px solid #f0f0f0;
+}
+
+.monthNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #111;
+  font-size: 1.05rem;
+}
+
+.navBtn {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #555;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.navBtn:hover {
+  background: #a39076;
+  color: white;
+  border-color: #a39076;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.dayName {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- DAY CELL STYLING --- */
+.dayCell {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #333;
+  position: relative;
+  font-weight: 500;
+  transition: background-color 0.1s ease;
+}
+
+.dayCell:hover:not(.disabled):not(.selected):not(.inRange) {
+  background-color: #f5f5f5;
+  color: #a39076;
+}
+
+.selected {
+  background-color: #a39076 !important;
+  color: white !important;
+  font-weight: 700;
+  box-shadow: 0 2px 5px rgba(163, 144, 118, 0.4);
+}
+
+.inRange {
+  background-color: #f3efe9 !important;
+  color: #5d4e38 !important;
+  border-radius: 0;
+}
+.inRange:first-of-type {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.inRange:last-of-type {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.disabled {
+  color: #e0e0e0;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+/* --- STAY POPUP (Dropdown below date) --- */
+.stayPopup {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 200px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  border-radius: 8px;
+  text-align: left;
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+.stayPopup::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 6px 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent #a39076 transparent;
+}
+
+.stayList {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.stayOption {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  text-align: left;
+  border: none;
+  background: white;
+  border-bottom: 1px solid #f9f9f9;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #444;
+  transition: background 0.1s;
+}
+.stayOption:hover {
+  background-color: #fdfaf6;
+  color: #a39076;
+}
+
+/* --- SUMMARY SECTION --- */
+.summaryRow {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0 0;
+  font-size: 0.9rem;
+  color: #a39076;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* --- INFO SECTION (Right Side) --- */
+.infoSection {
+  grid-area: info;
+  padding: 25px 30px;
+  background: #fdfdfd;
+  border-top: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.guestInput {
+  width: 100%;
+  padding: 18px 20px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 0;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.guestInput:hover {
+  border-color: #a39076;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.searchBtn {
+  width: 100%;
+  background: linear-gradient(135deg, #c5a686 0%, #a39076 100%);
+  color: white;
+  border: none;
+  padding: 18px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.searchBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(163, 144, 118, 0.4);
+}
+
+/* --- 🔥 GUEST POPUP & CONTROLS (Restored) --- */
+.guestPopup {
+  position: absolute;
+  top: 90px;
+  left: 30px;
+  width: calc(100% - 60px);
+  background: white;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  z-index: 9999;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  animation: slideIn 0.2s ease-out;
+}
+
+.guestPopup::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+.popupHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f5f5f5;
+  padding-bottom: 10px;
+}
+.popupTitle {
+  font-weight: 700;
+  color: #333;
+  font-size: 1rem;
+}
+
+.closePopupBtn {
+  /* ✅ Restored */
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.roomBlock {
+  border: 1px solid #f0f0f0;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.roomHeader {
+  background: #eee;
+  color: #333;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counterRow {
+  background: white;
+  border-bottom: 1px solid #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.counterControls {
+  /* ✅ Restored */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.roundBtn {
+  /* ✅ Restored */
+  width: 28px; /* Slightly larger for better clickability */
+  height: 28px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.roundBtn:hover {
+  background: #dcdcdc;
+}
+
+.addRoomBtn {
+  /* ✅ Restored */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1px dashed #ccc; /* Dashed border looks nice for 'add' */
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #555;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.addRoomBtn:hover {
+  background: #f9f9f9;
+  border-color: #a39076;
+  color: #a39076;
+}
+
+.saveBtn {
+  /* ✅ Restored */
+  width: 100%;
+  background: #333; /* Dark button for 'Done' */
+  color: white;
+  border: none;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.saveBtn:hover {
+  background: #555;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 960px) {
+  .sidebarContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "header"
+      "calendar"
+      "info";
+  }
+  .calendarWrapper {
+    border-right: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .infoSection {
+    padding-top: 20px;
+  }
+  .guestPopup {
+    top: 85px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

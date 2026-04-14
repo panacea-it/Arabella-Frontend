@@ -1,0 +1,144 @@
+/* Container Layout */
+.container {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  pointer-events: none; /* Click-through on empty space */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Aligns items to bottom */
+  padding: 0 40px;
+  max-width: 100vw;
+}
+
+/* --- INNOVATIVE WHATSAPP BUTTON --- */
+.whatsappBtn {
+  pointer-events: auto;
+
+  /* Innovative Gradient Background (Deep Teal to Bright Green) */
+  background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
+
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+
+  /* Typography */
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+
+  /* Glassy Border Effect */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+
+  /* Deep Shadow for "Floating" feel */
+  box-shadow: 0 8px 32px rgba(18, 140, 126, 0.4);
+
+  /* Animation setup */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* The "Pulse" Ring Animation (Signaling 'We are Online') */
+.whatsappBtn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(37, 211, 102, 0.4);
+  border-radius: 50px;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: -1;
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(18, 140, 126, 0.6);
+  background: linear-gradient(135deg, #0e6b5e 0%, #20bd5a 100%);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.whatsappBtn span {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- SCROLL TO TOP (Minimalist Gold) --- */
+.scrollBtn {
+  pointer-events: auto;
+
+  /* Sleek Glassy Dark Background */
+  background: rgba(0, 0, 0, 0.8);
+  color: #c5a059; /* Gold Icon */
+
+  width: 48px;
+  height: 48px;
+  border-radius: 12px; /* Soft Square shape is more modern */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  cursor: pointer;
+
+  /* Initial State */
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.scrollBtn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.scrollBtn:hover {
+  background: #c5a059; /* Fills with Gold */
+  color: #000; /* Icon turns black */
+  border-color: #c5a059;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(197, 160, 89, 0.5);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 20px;
+    bottom: 20px;
+  }
+
+  .whatsappBtn {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+
+  /* On mobile, remove the text if needed, or keep small */
+  .whatsappBtn span {
+    display: inline-block;
+  }
+}

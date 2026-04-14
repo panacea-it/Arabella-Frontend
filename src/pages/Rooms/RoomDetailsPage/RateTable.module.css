@@ -1,0 +1,212 @@
+.container {
+  margin-top: 30px;
+}
+
+.sectionTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  border-left: 4px solid #a39076;
+  padding-left: 15px;
+}
+
+/* --- ADD-ONS SECTION --- */
+.addonsSection {
+  background: #fdfdfd;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  border: 1px solid #eee;
+}
+
+.addonsTitle {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.addonsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.addonCard {
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.addonCard:hover {
+  border-color: #c5a686;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.selectedAddon {
+  border-color: #a39076;
+  background-color: #fffbf2; /* Light gold tint */
+  box-shadow: 0 0 0 1px #a39076 inset;
+}
+
+.addonHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.addonPrice {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* --- RATES TABLE --- */
+.table {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  background: white;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background-color: #fafafa;
+}
+
+/* -- Columns -- */
+.infoCol {
+  flex: 2;
+  padding-right: 20px;
+}
+
+.priceCol {
+  flex: 1;
+  text-align: right;
+  padding-right: 30px;
+}
+
+.actionCol {
+  flex: 0 0 140px;
+}
+
+/* -- Content Styling -- */
+.planName {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.policies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.policies span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.green {
+  color: #27ae60;
+}
+.red {
+  color: #e74c3c;
+}
+.gray {
+  color: #7f8c8d;
+}
+
+.discountTag {
+  display: inline-block;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.subtext {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2px;
+}
+
+.bookBtn {
+  width: 100%;
+  background-color: #a39076; /* Theme Gold */
+  color: white;
+  border: none;
+  padding: 12px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.bookBtn:hover {
+  background-color: #8b7860;
+}
+
+/* -- Responsive -- */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .infoCol,
+  .priceCol,
+  .actionCol {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  .priceCol {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,316 @@
+.pageContainer {
+  padding: 120px 5% 50px; /* Top padding for navbar */
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Form is wider */
+  gap: 40px;
+}
+
+/* --- FORM SECTION --- */
+.sectionTitle {
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.inputGroupFull {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+}
+
+input,
+textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+input:focus,
+textarea:focus {
+  border-color: #a39076;
+}
+
+.paymentNote {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #e8f5e9;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #2e7d32;
+}
+
+.payBtn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  background: #a39076;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.payBtn:hover {
+  background: #8b7860;
+}
+.payBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.errorMsg {
+  margin-top: 15px;
+  color: red;
+  font-size: 0.9rem;
+}
+
+/* --- SUMMARY SECTION --- */
+.summaryCard {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 100px;
+}
+
+.summaryImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.summaryContent {
+  padding: 20px;
+}
+
+.rateName {
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.divider {
+  height: 1px;
+  background: #eee;
+  margin: 15px 0;
+}
+
+.detailRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px dashed #eee;
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+  }
+}
+/* ... Keep existing CSS ... */
+
+/* New Label Row to align Label and Button */
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Location Button Styling */
+.locationBtn {
+  background: transparent;
+  border: 1px solid #a39076;
+  color: #a39076;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s;
+}
+
+.locationBtn:hover {
+  background: #a39076;
+  color: white;
+}
+
+.locationBtn:disabled {
+  border-color: #ccc;
+  color: #ccc;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+/* Spin Animation for Loaders */
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ... Keep remaining CSS ... */
+.pageContainer {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  max-width: 600px;
+  width: 100%;
+  padding: 50px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.iconWrapper {
+  margin-bottom: 25px;
+}
+
+.title {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.subtext {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.detailsBox {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.detailRow:last-child {
+  margin-bottom: 0;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #ddd;
+  font-weight: 700;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.actionRow {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.homeBtn,
+.invoiceBtn {
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.homeBtn {
+  background-color: #333;
+  color: white;
+  border: none;
+}
+
+.invoiceBtn {
+  background-color: white;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.homeBtn:hover,
+.invoiceBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

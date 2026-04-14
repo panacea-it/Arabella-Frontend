@@ -1,0 +1,314 @@
+.pageContainer {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  font-family: "Inter", sans-serif;
+}
+
+/* --- 🎥 ANIMATED SLIDER --- */
+.sliderSection {
+  width: 100%;
+  height: 60vh;
+  min-height: 450px;
+  background-color: #000;
+  position: relative;
+  overflow: hidden; /* Important to crop zoomed images */
+}
+
+.sliderWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* ✅ ABSOLUTE POSITIONING FOR CROSS-FADE */
+.heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+/* Optional Overlay to make text/nav readable */
+.sliderOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0) 80%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Nav Controls */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+.navBtn:hover {
+  background: white;
+  color: black;
+  opacity: 1;
+}
+.prevBtn {
+  left: 30px;
+}
+.nextBtn {
+  right: 30px;
+}
+
+.dotsContainer {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.activeDot {
+  background: white;
+  transform: scale(1.4);
+}
+
+/* --- CONTENT BOX --- */
+.contentContainer {
+  max-width: 1100px;
+  margin: -60px auto 0;
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 10;
+}
+
+/* ... (Keep existing Header, PriceBar, Grid, Rates styles below) ... */
+.headerRow {
+  margin-bottom: 10px;
+}
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  color: #111;
+  margin: 0 0 15px 0;
+  line-height: 1.1;
+}
+.specsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.specBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #f3f4f6;
+  border-radius: 20px;
+  color: #4b5563;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.priceBar {
+  background: #fcfbf9;
+  border: 1px solid #f0e6d2;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.priceBarContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.dealBadge {
+  background: #dcfce7;
+  color: #166534;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+.priceValues {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.strikePrice {
+  text-decoration: line-through;
+  color: #9ca3af;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.finalPriceGroup {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.currency {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+}
+.finalPrice {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #111;
+}
+.priceLabel {
+  font-size: 1rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.divider {
+  border: 0;
+  border-bottom: 1px solid #eaeaea;
+  margin: 30px 0;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+.sectionTitle {
+  font-size: 1.2rem;
+  color: #111;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-left: 4px solid #a39076;
+  padding-left: 12px;
+}
+.description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4b5563;
+}
+.subSection {
+  margin-bottom: 25px;
+}
+.subTitle {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.furnitureGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.furnitureItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #374151;
+}
+.furnitureIcon {
+  color: #a39076;
+}
+
+.amenitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.amenityItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #444;
+  font-size: 0.95rem;
+}
+.checkIcon {
+  color: #a39076;
+  background: #fdfaf5;
+  padding: 3px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ratesSection {
+  width: 100%;
+  margin-top: 20px;
+}
+.rateTableWrapper {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 15px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 900px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .contentContainer {
+    margin: 0;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .priceBarContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

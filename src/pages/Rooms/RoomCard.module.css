@@ -1,0 +1,301 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  height: 280px;
+  /* Fixed neat height */
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* --- IMAGE SECTION --- */
+.imageSection {
+  flex: 0 0 380px;
+  /* Fixed width for image */
+  position: relative;
+  overflow: hidden;
+}
+
+.roomImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .roomImage {
+  transform: scale(1.05);
+}
+
+/* Nav Buttons */
+.navBtnLeft,
+.navBtnRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 2;
+}
+
+.imageSection:hover .navBtnLeft,
+.imageSection:hover .navBtnRight {
+  opacity: 1;
+}
+
+.navBtnLeft {
+  left: 10px;
+}
+
+.navBtnRight {
+  right: 10px;
+}
+
+/* Dots */
+.dotsContainer {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 2;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+}
+
+.activeDot {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* --- CONTENT SECTION --- */
+.contentSection {
+  flex: 1;
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.textContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & Pricing */
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+  max-width: 60%;
+}
+
+.priceBlock {
+  text-align: right;
+}
+
+.offerRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.strikePrice {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.discountBadge {
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.mainPriceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+.currency {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.finalPrice {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.priceLabel {
+  font-size: 0.85rem;
+  color: #666;
+  margin-left: 4px;
+}
+
+/* Specs */
+.specsRow {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+  color: #555;
+  font-size: 0.85rem;
+}
+
+.specsRow span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 🛋️ FURNITURE STYLES */
+.furnitureRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.furnitureTag {
+  font-size: 0.75rem;
+  color: #4b5563;
+  background: #f3f4f6;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+.moreTag {
+  font-size: 0.75rem;
+  color: #6b7280;
+  padding: 4px 6px;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Buttons */
+.btnRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.outlineBtn,
+.chooseBtn {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.outlineBtn {
+  border: 1px solid #d1d5db;
+  color: #374151;
+  background: white;
+}
+
+.outlineBtn:hover {
+  border-color: #111;
+  color: #111;
+}
+
+.chooseBtn {
+  background: #111;
+  color: white;
+  border: 1px solid #111;
+}
+
+.chooseBtn:hover {
+  background: #333;
+  border-color: #333;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .imageSection {
+    flex: none;
+    width: 100%;
+    height: 200px;
+  }
+
+  .headerRow {
+    flex-direction: column-reverse;
+    gap: 5px;
+  }
+
+  .priceBlock {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .offerRow,
+  .mainPriceRow {
+    justify-content: flex-start;
+  }
+}

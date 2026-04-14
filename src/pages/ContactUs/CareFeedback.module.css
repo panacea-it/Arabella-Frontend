@@ -1,0 +1,396 @@
+/* CareFeedback.module.css */
+
+/* --- Main Section Layout --- */
+.careSection {
+  /* Remove solid background color */
+  /* background-color: #fcf8f5; */
+
+  /* Background image set via inline style to access public folder */
+  /* background-image: url("/images/arabella.jpg"); */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Parallax effect */
+  background-repeat: no-repeat;
+
+  padding: 100px 0;
+  /* Increase padding for more breathability */
+  font-family: var(--Font_Family,
+      "Helvetica Neue",
+      Helvetica,
+      Arial,
+      sans-serif);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Add Dark Gradient Overlay to ensure text readability */
+.careSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+      rgba(30, 10, 60, 0.85) 0%,
+      /* Deep Purple tint */
+      rgba(0, 0, 0, 0.7) 100%
+      /* Black fade */
+    );
+  z-index: -1;
+  /* Behind content */
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Header Section --- */
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.careTitle {
+  font-family: "Anton", sans-serif;
+  font-size: 4rem;
+  /* Slightly larger */
+  color: #ffffff;
+  /* White text for contrast */
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.1;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* Subtle text shadow */
+}
+
+.careDesc {
+  color: #e0e0e0;
+  /* Light grey for description */
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* --- Form Container & Tabs --- */
+.formContainer {
+  background: rgba(255, 255, 255, 0.1);
+  /* Glassmorphism effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.tabsRow {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  /* Light divider */
+  padding-bottom: 10px;
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  /* Inactive mostly transparent white */
+  cursor: pointer;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  top: 11px;
+}
+
+.tabBtn:hover {
+  color: #ffffff;
+}
+
+.activeTab {
+  color: #ffffff;
+  /* Active white */
+  border-bottom-color: #ffffff;
+  /* White underline */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* --- Form Grid --- */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 25px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Utility to span full width */
+.fullWidth {
+  grid-column: span 2;
+}
+
+.inputGroup label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  /* White label */
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  opacity: 0.9;
+}
+
+/* Input Fields Styling */
+.input,
+.textarea,
+.countrySelect,
+.phoneInput {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Translucent border */
+  background-color: rgba(255, 255, 255, 0.9);
+  /* Slightly transparent white bg */
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder,
+.phoneInput::placeholder {
+  color: #888;
+}
+
+/* Focus States */
+.input:focus,
+.textarea:focus,
+.countrySelect:focus,
+.phoneInput:focus {
+  border-color: #ffffff;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+/* Textarea specific */
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Phone Input Complex */
+.phoneInputWrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.countrySelect {
+  width: 110px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 8px auto;
+  appearance: none;
+  padding-right: 25px;
+}
+
+.phoneInput {
+  flex: 1;
+}
+
+/* --- Checkbox & Consent --- */
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #5e35b1;
+  cursor: pointer;
+}
+
+.checkboxRow label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  /* Lighter text for dark bg */
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkboxRow a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dotted #ffffff;
+  transition: color 0.2s;
+}
+
+.checkboxRow a:hover {
+  color: #ffcc80;
+  /* Gold/Orange accent on hover */
+  border-bottom-style: solid;
+}
+
+/* --- Submit Button --- */
+.submitRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.submitBtn {
+  background-color: #ffffff;
+  color: #5e35b1;
+  border: 1px solid #5e35b1;
+  padding: 14px 60px;
+  border-radius: 50px;
+  /* Pill shape */
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(94, 53, 177, 0.1);
+}
+
+.submitBtn:hover {
+  background-color: #5e35b1;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(94, 53, 177, 0.2);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+/* --- Floating Chat Icon --- */
+.chatIcon {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  background-color: #5e35b1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(94, 53, 177, 0.4);
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chatIcon:hover {
+  transform: scale(1.1);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+/* Tablet (Portrait) and Mobile */
+@media (max-width: 768px) {
+  .careSection {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+    /* Ensure edge spacing */
+  }
+
+  .careTitle {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .careDesc {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .formContainer {
+    padding: 25px 20px;
+    /* Reduced padding for mobile */
+  }
+
+  /* Stack form elements vertically */
+  .formGrid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 20px;
+  }
+
+  /* Force "fullWidth" items to just be 1 column wide (which is 100% now) */
+  .fullWidth {
+    grid-column: span 1;
+  }
+
+  .tabsRow {
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    /* Allow wrapping if needed */
+  }
+
+  .tabBtn {
+    font-size: 0.9rem;
+  }
+
+  /* Stack checkbox text if it gets too long */
+  .checkboxRow {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .checkbox {
+    margin-top: 3px;
+    flex-shrink: 0;
+    /* Prevent squashing */
+  }
+
+  .submitBtn {
+    width: 100%;
+    padding: 16px 0;
+    /* Taller touch target */
+  }
+
+  .chatIcon {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+}

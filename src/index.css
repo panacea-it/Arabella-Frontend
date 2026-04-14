@@ -1,0 +1,71 @@
+/* --- Fonts Import --- */
+
+/* Suez One - For Brand Titles */
+@import url("https://fonts.googleapis.com/css2?family=Suez+One&display=swap");
+
+/* Poppins & Roboto - For Body Text */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+
+/* Mulish - Extra Option */
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200..900&display=swap");
+
+/* --- Global Variables --- */
+:root {
+  /* Brand Colors */
+  --Primary_Color: #4070b1; /* Arabella Blue */
+  --Background_Color: #fcfbff; /* Light Background */
+
+  /* Neutral Colors */
+  --White_Color: #ffffff;
+  --Grey_Color: #ada0a0;
+  --Black_Color: #1a1a1a; /* Softer Black for text */
+  --Border_Color: #e2e8f0; /* Light grey for borders */
+
+  /* Status Colors */
+  --Error_Color: #c0392b;
+  --Success_Color: #27ae60;
+  --Warning_Color: #e67e22;
+  --Info_Color: #2980b9;
+
+  /* Typography */
+  --Font_Family: "Roboto", sans-serif;
+  --Font_Poppins: "Poppins", sans-serif;
+  --Font_Mulish: "Mulish", sans-serif;
+  --Font_Brand: "Suez One", serif;
+
+  /* Spacing / Sizes */
+  --Font_Size_1: 12px;
+  --Font_Size_2: 14px;
+  --Font_Size_3: 16px;
+  --Font_Size_4: 20px;
+  --Font_Size_5: 24px;
+}
+
+/* --- Global Resets --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: var(--Font_Family);
+}
+
+body {
+  background-color: var(--Background_Color);
+  color: var(--Black_Color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+}

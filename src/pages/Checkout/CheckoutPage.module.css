@@ -1,0 +1,201 @@
+.pageContainer {
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 50px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+}
+.header h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+}
+.header p {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: flex-start; /* For Sticky Sidebar */
+  gap: 30px;
+}
+
+/* --- STICKY SIDEBAR (Booking Summary) --- */
+.sidebarColumn {
+  width: 350px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 130px;
+  z-index: 40;
+}
+
+.summaryCard {
+  background: white;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.summaryHeader {
+  background: #a39076;
+  color: white;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.summaryBody {
+  padding: 20px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.roomSnippet {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+.thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.roomTitle {
+  font-weight: 700;
+  color: #333;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+/* --- MAIN FORM AREA --- */
+.formColumn {
+  flex: 1;
+  min-width: 0;
+}
+
+.sectionCard {
+  background: white;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+/* Form Grid */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.fullWidth {
+  grid-column: span 2;
+}
+
+.inputGroup label {
+  display: block;
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+.inputField {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+.inputField:focus {
+  outline: 1px solid #a39076;
+}
+
+/* Payment Styles */
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.cancelBtn {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.confirmBtn {
+  background: #a39076;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 30px;
+  border: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.confirmBtn:hover {
+  background: #8c7b63;
+}
+
+@media (max-width: 900px) {
+  .contentWrapper {
+    flex-direction: column;
+  }
+  .sidebarColumn {
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+}
