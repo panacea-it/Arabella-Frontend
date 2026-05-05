@@ -8,8 +8,8 @@ const galleryImages = [
   {
     id: 1,
     category: "Rooms",
-    src: "/images/arabella-motor-inn.jpg",
-    title: "Arabella Motor Inn",
+    src: "/images/Queensland.png",
+    title: "Queenland beach",
   },
   {
     id: 2,
@@ -42,12 +42,6 @@ const galleryImages = [
     title: "Entering View",
   },
   {
-    id: 7,
-    category: "Rooms",
-    src: "/images/img1.jpg",
-    title: "Inside View",
-  },
-  {
     id: 8,
     category: "Rooms",
     src: "/images/ARB. 7.jpg",
@@ -74,8 +68,8 @@ const galleryImages = [
   {
     id: 12,
     category: "Rooms",
-    src: "/images/rooms/family/img1.jpeg",
-    title: "Hall View",
+    src: "/images/Tweed Heads.png",
+    title: "Tweed Heads",
   },
 {
     id: 13,
@@ -84,16 +78,10 @@ const galleryImages = [
     title: "Overall View",
   },
   {
-    id:14,
-    category: "Rooms",
-    src: "/images/rooms/queen/img1.jpeg",
-    title: "Sitting View",
-  },
-  {
     id:15,
     category: "Rooms",
-    src: "/images/rooms/queen/img5.jpeg",
-    title: "cupboard View",
+    src: "/images/Kirra Hill Lookout.png",
+    title: "Kirra Hill ",
   },
   {
    id:16,
@@ -102,28 +90,16 @@ const galleryImages = [
     title: "Overall  View",
   },
   {
-    id:17,
-    category:"Rooms",
-    src:"/images/rooms/twin/img1.jpeg",
-    title:"hall View "
-  },
-  {
     id:18,
     category:"Rooms",
     src:"/images/rooms/twin/img3.jpeg",
     title:"Bed Rooms View "
   },
-{
-  id:19,
-  category:"Rooms",
-  src:"/images/rooms/twin/img2.jpeg",
-  title:"side View"
-},
   {
     id:20,
     category:"Rooms",
-    src:"/images/rooms/twin/img7.jpeg",
-    title:"Sitting View"
+    src:"/images/Duranbah Beach.png",
+    title:"Duranbah Beach"
   },
   {
     id: 21,
