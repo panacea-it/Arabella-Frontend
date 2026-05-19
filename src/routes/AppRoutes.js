@@ -7,6 +7,8 @@ import HomePage from "../pages/HomePage/HomePage";
 import AboutUs from "../pages/AboutUs/AboutUs";
 // import RoomsPage from "../pages/Rooms/RoomsPage";
 import Gallery from "../pages/Gallery/Gallery";
+import BlogsPage from "../pages/Blogs/BlogsPage";
+import BlogDetailsPage from "../pages/Blogs/BlogDetailsPage";
 import PaymentSuccess from "../pages/PaymentSuccess/PaymentSuccess";
 // import RoomDetailsPage from "../pages/Rooms/RoomDetailsPage/RoomDetailsPage";
 
@@ -45,6 +47,8 @@ export default function AppRoutes() {
             <Route path="about" element={<AboutUs />} />
             {/* Rooms routes removed */}
             <Route path="gallery" element={<Gallery />} />
+            <Route path="blogs" element={<BlogsPage />} />
+            <Route path="blogs/:slug" element={<BlogDetailsPage />} />
             <Route path="contact" element={<ContactUs />} />
 
             {/* <Route path="checkout" element={<CheckoutPage />} /> */}
